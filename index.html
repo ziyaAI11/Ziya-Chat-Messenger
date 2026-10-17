@@ -1,153 +1,157 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#6c3bdb">
-  <title>ضیا | Ziya</title>
-
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      font-family: Tahoma, Arial, sans-serif;
-      color: #fff;
-      background: linear-gradient(135deg, #17112d, #39216d, #6c3bdb);
-    }
-
-    .card {
-      width: 100%;
-      max-width: 390px;
-      padding: 30px 24px;
-      border: 1px solid #ffffff25;
-      border-radius: 25px;
-      background: #ffffff12;
-      box-shadow: 0 20px 60px #0004;
-      text-align: center;
-    }
-
-    .logo {
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 12px;
-      display: grid;
-      place-items: center;
-      border-radius: 24px;
-      background: #8c63ff;
-      font-size: 38px;
-      font-weight: bold;
-    }
-
-    h1 { margin: 8px 0; font-size: 30px; }
-    .subtitle { color: #ddd3ff; line-height: 1.8; }
-
-    input {
-      width: 100%;
-      padding: 15px;
-      margin: 9px 0;
-      border: 1px solid #ffffff35;
-      border-radius: 13px;
-      outline: none;
-      background: #ffffff12;
-      color: white;
-      font-size: 16px;
-      direction: ltr;
-      text-align: left;
-    }
-
-    input::placeholder { color: #d6cbed; }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      margin-top: 12px;
-      border: none;
-      border-radius: 13px;
-      background: #9b7aff;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:disabled { opacity: .6; cursor: wait; }
-    .secondary { background: #ffffff18; }
-
-    #message {
-      min-height: 45px;
-      margin-top: 15px;
-      line-height: 1.8;
-      overflow-wrap: anywhere;
-    }
-
-    .hidden { display: none !important; }
-    .note { color: #d9d0f4; font-size: 12px; line-height: 1.8; }
-
-    #recaptcha-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 12px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ضیا | Ziya</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;font-family:Tahoma,Arial;background:linear-gradient(135deg,#17112d,#6c3bdb);color:white}
+.card{width:100%;max-width:390px;padding:28px 22px;border-radius:24px;background:#ffffff12;text-align:center}
+.logo{font-size:38px;background:#8c63ff;border-radius:20px;width:70px;height:70px;margin:auto;display:grid;place-items:center}
+input,button{width:100%;padding:14px;margin-top:12px;border-radius:12px;font-size:16px}
+input{background:#ffffff12;color:white;border:1px solid #ffffff55;direction:ltr}
+input::placeholder{color:#ddd}
+button{border:0;background:#9b7aff;color:white;font-weight:bold}
+.hidden{display:none!important}
+#message{line-height:1.8;overflow-wrap:anywhere}
+.note{font-size:12px;line-height:1.8;color:#ddd}
+</style>
 </head>
-
 <body>
-  <main class="card">
-    <div class="logo">ض</div>
-    <h1>ضیا | Ziya</h1>
-    <p class="subtitle">ارتباط ساده، سریع و امن</p>
+<main class="card">
+<div class="logo">ض</div>
+<h1>ضیا | Ziya</h1>
+<p>ارتباط ساده، سریع و امن</p>
 
-    <section id="phoneSection">
-      <p>برای ورود، شماره آزمایشی ثبت‌شده در Firebase را وارد کن.</p>
+<section id="phoneSection">
+<p>شماره آزمایشی ثبت‌شده در Firebase را وارد کن.</p>
+<input id="phone" type="tel" placeholder="+989123456789">
+<div id="recaptcha-container"></div>
+<button id="sendBtn">ادامه</button>
+</section>
 
-      <input
-        id="phone"
-        type="tel"
-        autocomplete="tel"
-        placeholder="+989123456789"
-        aria-label="شماره تلفن"
-      >
+<section id="codeSection" class="hidden">
+<p>کد آزمایشی شش‌رقمی را وارد کن.</p>
+<input id="code" inputmode="numeric" maxlength="6" placeholder="123456">
+<button id="verifyBtn">تأیید و ورود</button>
+<button id="backBtn">بازگشت</button>
+</section>
 
-      <div id="recaptcha-container"></div>
+<section id="userSection" class="hidden">
+<h2>خوش آمدی! 💜</h2>
+<p id="userInfo"></p>
+<p class="note">این نسخه فقط ورود را آزمایش می‌کند؛ چت هنوز ساخته نشده است.</p>
+<button id="logoutBtn">خروج از حساب</button>
+</section>
 
-      <button id="sendBtn">ادامه</button>
-    </section>
+<p id="message" role="status" aria-live="polite"></p>
+<p class="note">نسخه آزمایشی ضیا</p>
+</main>
 
-    <section id="codeSection" class="hidden">
-      <p>کد تأیید شش‌رقمی را وارد کن.</p>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+const firebaseConfig = {
+ apiKey:"AIzaSyDZy11Zyu-CknUX2aa0yhC1cAu3O_GQ-Bg",
+ authDomain:"ziya-8c980.firebaseapp.com",
+ projectId:"ziya-8c980",
+ storageBucket:"ziya-8c980.firebasestorage.app",
+ messagingSenderId:"626266525556",
+ appId:"1:626266525556:web:3472f9c09e5abe0849e621",
+ measurementId:"G-90K8QD6KMS"
+};
 
-      <input
-        id="code"
-        type="text"
-        inputmode="numeric"
-        autocomplete="one-time-code"
-        maxlength="6"
-        placeholder="123456"
-        aria-label="کد تأیید"
-      >
+firebase.initializeApp(firebaseConfig);
+const auth=firebase.auth();
+const $=id=>document.getElementById(id);
+let verifier=null;
+let confirmation=null;
 
-      <button id="verifyBtn">تأیید و ورود</button>
-      <button id="backBtn" class="secondary">بازگشت</button>
-    </section>
+function message(text,error=false){
+ $("message").textContent=text;
+ $("message").style.color=error?"#ffb6c1":"#c9ffda";
+}
+function section(id){
+ ["phoneSection","codeSection","userSection"].forEach(x=>
+  $(x).classList.toggle("hidden",x!==id)
+ );
+}
+function errorText(e){
+ const known={
+ "auth/invalid-phone-number":"قالب شماره درست نیست.",
+ "auth/invalid-verification-code":"کد اشتباه است.",
+ "auth/too-many-requests":"تلاش‌های زیادی انجام شده؛ بعداً دوباره امتحان کن.",
+ "auth/unauthorized-domain":"دامنه سایت در Firebase مجاز نشده.",
+ "auth/operation-not-allowed":"ورود تلفنی در Firebase فعال نیست.",
+ "auth/captcha-check-failed":"تأیید امنیتی ناموفق بود؛ صفحه را تازه کن.",
+ "auth/network-request-failed":"اتصال اینترنت را بررسی کن."
+ };
+ return known[e.code]||"خطا: "+(e.message||e.code||"نامشخص");
+}
 
-    <section id="userSection" class="hidden">
-      <h2>خوش آمدی! 💜</h2>
-      <p id="userInfo"></p>
-      <p class="note">
-        ورود انجام شده است؛ قابلیت ارسال پیام هنوز ساخته نشده.
-      </p>
-      <button id="logoutBtn">خروج از حساب</button>
-    </section>
+$("sendBtn").onclick=async()=>{
+ const phone=$("phone").value.trim();
+ if(!phone){message("شماره تلفن را وارد کن.",true);return;}
+ $("sendBtn").disabled=true;
+ message("در حال آماده‌سازی...");
+ try{
+  if(!verifier){
+   verifier=new firebase.auth.RecaptchaVerifier(
+    "recaptcha-container",{size:"normal"}
+   );
+   await verifier.render();
+  }
+  confirmation=await auth.signInWithPhoneNumber(phone,verifier);
+  section("codeSection");
+  message("کد درخواست شد؛ کد آزمایشی ثبت‌شده در Firebase را وارد کن.");
+ }catch(e){
+  console.error(e);
+  message(errorText(e),true);
+  if(verifier){verifier.clear();verifier=null;}
+  $("recaptcha-container").innerHTML="";
+ }finally{
+  $("sendBtn").disabled=false;
+ }
+};
 
-    <p id="message" role="status" aria-live="polite"></p>
+$("verifyBtn").onclick=async()=>{
+ const code=$("code").value.trim();
+ if(!confirmation){message("اول شماره را وارد کن.",true);section("phoneSection");return;}
+ if(!/^\d{6}$/.test(code)){message("کد باید شش رقم باشد.",true);return;}
+ $("verifyBtn").disabled=true;
+ try{
+  await confirmation.confirm(code);
+  message("ورود موفق بود!");
+ }catch(e){
+  console.error(e);
+  message(errorText(e),true);
+ }finally{
+  $("verifyBtn").disabled=false;
+ }
+};
 
-    <p class="note">
-      نسخه آزمایشی ضیا؛ برای تست از شماره و کد آزمایشی تنظیم‌شده در Firebase استفاده کن.
-    </p>
-  </
+$("backBtn").onclick=()=>{
+ confirmation=null;
+ $("code").value="";
+ section("phoneSection");
+ message("");
+};
+
+$("logoutBtn").onclick=async()=>{
+ try{await auth.signOut();message("از حساب خارج شدی.");}
+ catch(e){message(errorText(e),true);}
+};
+
+auth.onAuthStateChanged(user=>{
+ if(user){
+  section("userSection");
+  $("userInfo").textContent="حساب: "+(user.phoneNumber||"کاربر ضیا");
+  confirmation=null;
+ }else{
+  section("phoneSection");
+ }
+});
+</script>
+</body>
+</html>
