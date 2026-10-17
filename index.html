@@ -87,7 +87,7 @@ function errorText(e){
  "auth/captcha-check-failed":"تأیید امنیتی ناموفق بود؛ صفحه را تازه کن.",
  "auth/network-request-failed":"اتصال اینترنت را بررسی کن."
  };
- return known[e.code]||"خطا: "+(e.message||e.code||"نامشخص");
+ return "کد: " + (e.code || "نامشخص") + " | " + (e.message || "");
 }
 
 $("sendBtn").onclick=async()=>{
