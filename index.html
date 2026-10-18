@@ -1,333 +1,211 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#6c3bdb">
-  <title>ضیا | Ziya</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b24">
+<title>دنیای جادویی ضیا ✨</title>
 
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Tahoma, Arial, sans-serif;
-      color: white;
-      background: linear-gradient(135deg, #17112d, #39216d, #6c3bdb);
-    }
-
-    .card {
-      width: 100%;
-      max-width: 400px;
-      padding: 28px 22px;
-      border: 1px solid #ffffff25;
-      border-radius: 24px;
-      background: #ffffff12;
-      box-shadow: 0 20px 60px #0004;
-      text-align: center;
-    }
-
-    .logo {
-      width: 72px;
-      height: 72px;
-      margin: auto;
-      display: grid;
-      place-items: center;
-      border-radius: 22px;
-      background: #8c63ff;
-      font-size: 38px;
-      font-weight: bold;
-    }
-
-    h1 { margin: 12px 0; }
-
-    p { line-height: 1.8; }
-
-    input, button {
-      width: 100%;
-      padding: 14px;
-      margin-top: 12px;
-      border-radius: 12px;
-      font-size: 16px;
-    }
-
-    input {
-      border: 1px solid #ffffff45;
-      outline: none;
-      background: #ffffff12;
-      color: white;
-      direction: ltr;
-      text-align: left;
-    }
-
-    input::placeholder { color: #ddd2f5; }
-
-    button {
-      border: 0;
-      background: #9b7aff;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      opacity: .6;
-      cursor: wait;
-    }
-
-    .secondary { background: #ffffff20; }
-
-    .hidden { display: none !important; }
-
-    #message {
-      min-height: 45px;
-      overflow-wrap: anywhere;
-      font-size: 14px;
-    }
-
-    .note {
-      color: #ddd2f5;
-      font-size: 12px;
-    }
-
-    #recaptcha-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 12px;
-      overflow: hidden;
-    }
-  </style>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;color:white;
+ font-family:Tahoma,Arial,sans-serif;text-align:center;
+ background:radial-gradient(ellipse at top,#263c80,#10132f 55%,#050615);
+ overflow-x:hidden
+}
+#stars{position:fixed;inset:0;pointer-events:none}
+.star{
+ position:absolute;background:white;border-radius:50%;
+ animation:twinkle 2s infinite alternate
+}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+.moon{
+ position:fixed;top:35px;left:25px;width:55px;height:55px;
+ background:#fff1bf;border-radius:50%;
+ box-shadow:0 0 30px #ffe8a5;pointer-events:none
+}
+main{position:relative;max-width:650px;margin:auto;padding:30px 18px}
+h1{font-size:clamp(30px,8vw,46px);color:#ffd7ef;
+ text-shadow:0 0 22px #ff78ca;margin:18px 0}
+.intro{line-height:2;color:#dce3ff;font-size:15px}
+.scene{height:260px;position:relative;margin:25px auto 10px}
+.island{
+ position:absolute;bottom:25px;left:50%;transform:translateX(-50%);
+ width:250px;height:75px;border-radius:50%;
+ background:linear-gradient(#698bd5,#26376d 65%,#131c48);
+ box-shadow:0 15px 30px #0008,0 0 35px #75aaff66
+}
+.castle{
+ position:absolute;bottom:85px;left:50%;transform:translateX(-50%);
+ width:170px;height:120px;
+ filter:drop-shadow(0 0 14px #ffb6d5)
+}
+.tower{
+ position:absolute;bottom:0;width:40px;
+ background:linear-gradient(90deg,#66558e,#d6a3ca,#66558e);
+ border:1px solid #ffe0ef
+}
+.tower:before{
+ content:"";position:absolute;top:-25px;left:-6px;
+ border-left:26px solid transparent;border-right:26px solid transparent;
+ border-bottom:28px solid #ffb5d5
+}
+.a{height:65px;left:0}
+.b{height:100px;left:65px;width:42px}
+.c{height:70px;right:0}
+.window{
+ position:absolute;bottom:18px;left:14px;width:9px;height:15px;
+ border-radius:8px;background:#ffe9a2;box-shadow:0 0 12px #ffe9a2
+}
+.b .window{height:22px;bottom:30px;left:16px}
+.cloud{
+ position:absolute;font-size:24px;
+ animation:float 4s ease-in-out infinite
+}
+.c1{left:10%;top:45px}.c2{right:9%;top:100px;animation-delay:-2s}
+.c3{left:24%;top:130px;animation-delay:-1s}
+@keyframes float{50%{transform:translateY(-13px)}}
+.card{
+ margin:18px 0;padding:22px 17px;border-radius:22px;
+ background:#ffffff0d;border:1px solid #b9c7ff40;
+ box-shadow:0 10px 35px #0003
+}
+h2{font-size:20px;color:#ffd5ed}
+p{line-height:2}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{
+ padding:14px 8px;border:1px solid #ffffff40;border-radius:15px;
+ background:linear-gradient(135deg,#7652a6,#394f9b);
+ color:white;font:inherit;cursor:pointer
+}
+button:active{transform:scale(.97)}
+button span{display:block;font-size:25px;margin-bottom:6px}
+#message{
+ display:none;margin-top:18px;padding:17px;border-radius:15px;
+ background:#ff8bc91a;border:1px solid #ff8bc966;line-height:2;
+ animation:appear .4s
+}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+.heart{
+ position:fixed;bottom:10px;pointer-events:none;
+ animation:rise 2.5s forwards;z-index:5
+}
+@keyframes rise{to{transform:translateY(-85vh) rotate(25deg);opacity:0}}
+footer{font-size:12px;color:#b9c5ed;padding:22px}
+</style>
 </head>
 
 <body>
-  <main class="card">
-    <div class="logo">ض</div>
-    <h1>ضیا | Ziya</h1>
-    <p>ارتباط ساده، سریع و امن 💜</p>
+<div id="stars"></div>
+<div class="moon"></div>
 
-    <section id="phoneSection">
-      <p>شماره آزمایشی ثبت‌شده در Firebase را وارد کن.</p>
+<main>
+ <div style="color:#c5d1ff;font-size:13px">
+  ✦ یک گوشهٔ کوچک از خیال ✦
+ </div>
 
-      <input
-        id="phone"
-        type="tel"
-        autocomplete="tel"
-        placeholder="+989123456789"
-        aria-label="شماره تلفن"
-      >
+ <h1>دنیای جادویی ضیا 🌙</h1>
 
-      <div id="recaptcha-container"></div>
+ <div class="intro">
+  به دنیای کوچولوی ما خوش اومدی ✨<br>
+  اینجا ستاره‌ها برای تو روشن می‌شن.
+ </div>
 
-      <button id="sendBtn">ادامه</button>
-    </section>
+ <section class="scene">
+  <div class="cloud c1">✨</div>
+  <div class="cloud c2">🏮</div>
+  <div class="cloud c3">💫</div>
 
-    <section id="codeSection" class="hidden">
-      <p>کد شش‌رقمی تنظیم‌شده در Firebase را وارد کن.</p>
+  <div class="castle">
+   <div class="tower a"><i class="window"></i></div>
+   <div class="tower b"><i class="window"></i></div>
+   <div class="tower c"><i class="window"></i></div>
+  </div>
 
-      <input
-        id="code"
-        type="text"
-        inputmode="numeric"
-        autocomplete="one-time-code"
-        maxlength="6"
-        placeholder="123456"
-        aria-label="کد تأیید"
-      >
+  <div class="island"></div>
+ </section>
 
-      <button id="verifyBtn">تأیید و ورود</button>
-      <button id="backBtn" class="secondary">بازگشت</button>
-    </section>
+ <section class="card">
+  <h2>💜 برای تو ساخته شده</h2>
+  <p>
+   این دنیا شاید کوچک باشه، اما یک سورپرایز قشنگ
+   توی دلش پنهان شده. هر دکمه رو لمس کن و کشفش کن.
+  </p>
 
-    <section id="userSection" class="hidden">
-      <h2>خوش آمدی! 🎉</h2>
-      <p id="userInfo"></p>
-      <p class="note">
-        ورود موفق است؛ قابلیت چت هنوز ساخته نشده.
-      </p>
-      <button id="logoutBtn">خروج از حساب</button>
-    </section>
+  <div class="buttons">
+   <button onclick="letter()">
+    <span>💌</span>نامهٔ مخصوص تو
+   </button>
 
-    <p id="message" role="status" aria-live="polite"></p>
+   <button onclick="wish()">
+    <span>🌠</span>یک آرزو کن
+   </button>
 
-    <p class="note">
-      نسخه آزمایشی ضیا — از کد تأیید فقط در سایت خودت استفاده کن.
-    </p>
-  </main>
+   <button onclick="secret()">
+    <span>🎁</span>سورپرایز مخفی
+   </button>
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+   <button onclick="magic()">
+    <span>💖</span>روشن کردن جادو
+   </button>
+  </div>
 
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyDZy11Zyu-CknUX2aa0yhC1cAu3O_GQ-Bg",
-      authDomain: "ziya-8c980.firebaseapp.com",
-      projectId: "ziya-8c980",
-      storageBucket: "ziya-8c980.firebasestorage.app",
-      messagingSenderId: "626266525556",
-      appId: "1:626266525556:web:3472f9c09e5abe0849e621",
-      measurementId: "G-90K8QD6KMS"
-    };
+  <div id="message" aria-live="polite"></div>
+ </section>
 
-    const $ = id => document.getElementById(id);
+ <footer>
+  با خیال ساخته شده، برای ساختن یک لبخند ♡<br>
+  دنیای جادویی ضیا ✨
+ </footer>
+</main>
 
-    let auth = null;
-    let verifier = null;
-    let confirmation = null;
+<script>
+const sky=document.getElementById("stars");
 
-    function showMessage(text, error = false) {
-      $("message").textContent = text;
-      $("message").style.color = error ? "#ffb6c1" : "#c9ffda";
-    }
+for(let i=0;i<100;i++){
+ const s=document.createElement("i");
+ s.className="star";
+ s.style.left=Math.random()*100+"%";
+ s.style.top=Math.random()*100+"%";
+ const size=1+Math.random()*3;
+ s.style.width=size+"px";
+ s.style.height=size+"px";
+ s.style.animationDelay=Math.random()*3+"s";
+ sky.appendChild(s);
+}
 
-    function showSection(sectionId) {
-      ["phoneSection", "codeSection", "userSection"].forEach(id => {
-        $(id).classList.toggle("hidden", id !== sectionId);
-      });
-    }
+function show(text){
+ const box=document.getElementById("message");
+ box.textContent=text;
+ box.style.display="block";
+ box.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
 
-    function showFirebaseError(error) {
-      console.error("Firebase error:", error);
+function letter(){
+ show("یک نامه برای تو 💌 امیدوارم هر روزت پر از لحظه‌های قشنگ باشه. این صفحه رو با فکر ساختن یک لبخند طراحی کردم؛ چون گاهی یک کار کوچک می‌تونه خاطره‌ای بزرگ بسازه. ♡");
+}
 
-      const code = error && error.code
-        ? error.code
-        : "unknown";
+function wish(){
+ show("چشم‌هات رو ببند و یک آرزوی قشنگ کن 🌠 شاید جادوی واقعی از همین امیدهای کوچیک شروع بشه.");
+}
 
-      const details = error && error.message
-        ? error.message
-        : "پیام خطا موجود نیست.";
+function secret(){
+ show("🎁 سورپرایز مخفی: تو الان وارد دنیایی شدی که ضیا با خیال و سلیقهٔ خودش ساخته تا لحظه‌ای متفاوت برات بسازه. این فقط شروع ماجراست! ✨");
+}
 
-      // نمایش کد واقعی برای عیب‌یابی
-      showMessage("کد خطا: " + code + " | پیام: " + details, true);
-    }
-
-    function resetRecaptcha() {
-      if (verifier) {
-        try {
-          verifier.clear();
-        } catch (error) {
-          console.warn("reCAPTCHA cleanup:", error);
-        }
-      }
-
-      verifier = null;
-      $("recaptcha-container").innerHTML = "";
-    }
-
-    // بررسی بارگذاری Firebase
-    try {
-      if (!window.firebase) {
-        throw new Error("کتابخانه Firebase بارگذاری نشده است.");
-      }
-
-      firebase.initializeApp(firebaseConfig);
-      auth = firebase.auth();
-
-      auth.onAuthStateChanged(user => {
-        if (user) {
-          showSection("userSection");
-
-          $("userInfo").textContent =
-            "حساب واردشده: " + (user.phoneNumber || "کاربر ضیا");
-
-          confirmation = null;
-        } else {
-          showSection("phoneSection");
-        }
-      });
-
-    } catch (error) {
-      showFirebaseError(error);
-    }
-
-    // درخواست ورود
-    $("sendBtn").addEventListener("click", async () => {
-      if (!auth) {
-        showMessage(
-          "Firebase آماده نیست. اتصال اینترنت و بارگذاری کتابخانه را بررسی کن.",
-          true
-        );
-        return;
-      }
-
-      const phone = $("phone").value.trim();
-
-      if (!phone) {
-        showMessage("شماره تلفن را وارد کن.", true);
-        return;
-      }
-
-      $("sendBtn").disabled = true;
-      showMessage("در حال آماده‌سازی ورود...");
-
-      try {
-        if (!verifier) {
-          verifier = new firebase.auth.RecaptchaVerifier(
-            "recaptcha-container",
-            { size: "normal" }
-          );
-
-          await verifier.render();
-        }
-
-        confirmation = await auth.signInWithPhoneNumber(
-          phone,
-          verifier
-        );
-
-        showSection("codeSection");
-
-        showMessage(
-          "درخواست موفق بود. کد آزمایشی ثبت‌شده در Firebase را وارد کن."
-        );
-
-        $("code").focus();
-
-      } catch (error) {
-        showFirebaseError(error);
-        resetRecaptcha();
-
-      } finally {
-        $("sendBtn").disabled = false;
-      }
-    });
-
-    // تأیید کد
-    $("verifyBtn").addEventListener("click", async () => {
-      if (!confirmation) {
-        showMessage("ابتدا شماره تلفن را وارد کن.", true);
-        showSection("phoneSection");
-        return;
-      }
-
-      const code = $("code").value.trim();
-
-      if (!/^\d{6}$/.test(code)) {
-        showMessage("کد باید دقیقاً شش رقم باشد.", true);
-        return;
-      }
-
-      $("verifyBtn").disabled = true;
-      showMessage("در حال بررسی کد...");
-
-      try {
-        await confirmation.confirm(code);
-        showMessage("ورود موفق بود! 💜");
-
-      } catch (error) {
-        showFirebaseError(error);
-
-      } finally {
-        $("verifyBtn").disabled = false;
-      }
-    });
-
-    // بازگشت به صفحه شماره
-    $("backBtn").addEventListener("click", () => {
-      confirmation = null;
-      $("code").value = "";
-      showSection("phone
+function magic(){
+ for(let i=0;i<24;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.textContent=["💖","💕","✨","🌟"][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*95+"%";
+  h.style.fontSize=(18+Math.random()*20)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),2700);
+ }
+ show("جادو روشن شد! 💖 امیدوارم این لحظه لبخند به لبت بیاره.");
+}
+</script>
+</body>
+</html>
