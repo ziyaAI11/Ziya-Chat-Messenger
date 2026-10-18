@@ -331,7 +331,17 @@ footer {
     <button onclick="toggleMessage('letter')">
       💌 باز کردن نامهٔ مخفی
     </button>
-
+<div class="envelope-area">
+  <div class="envelope" onclick="openEnvelope(this)">
+    <div class="envelope-flap"></div>
+    <div class="envelope-paper">
+      <span>💌</span>
+      <p>یک پیام جادویی برای تو</p>
+    </div>
+    <div class="envelope-front">✨ نامهٔ مخفی ✨</div>
+  </div>
+  <p class="small">برای باز کردن نامه، پاکت را لمس کن</p>
+</div>
     <div id="letter" class="message">
       ✨ نامه‌ای از سرزمین خیال ✨<br><br>
       گاهی یک لحظهٔ کوچک می‌تواند به خاطره‌ای
