@@ -2,209 +2,277 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080b24">
-<title>دنیای جادویی ضیا ✨</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دنیای جادویی ضیا 🌌</title>
 
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;min-height:100vh;color:white;
- font-family:Tahoma,Arial,sans-serif;text-align:center;
- background:radial-gradient(ellipse at top,#263c80,#10132f 55%,#050615);
- overflow-x:hidden
+* {
+  box-sizing: border-box;
 }
-#stars{position:fixed;inset:0;pointer-events:none}
-.star{
- position:absolute;background:white;border-radius:50%;
- animation:twinkle 2s infinite alternate
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Tahoma, Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 110%, #5335a0 0%, transparent 50%),
+    linear-gradient(180deg, #050719, #111a43 60%, #301d55);
 }
-@keyframes twinkle{from{opacity:.2}to{opacity:1}}
-.moon{
- position:fixed;top:35px;left:25px;width:55px;height:55px;
- background:#fff1bf;border-radius:50%;
- box-shadow:0 0 30px #ffe8a5;pointer-events:none
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
-main{position:relative;max-width:650px;margin:auto;padding:30px 18px}
-h1{font-size:clamp(30px,8vw,46px);color:#ffd7ef;
- text-shadow:0 0 22px #ff78ca;margin:18px 0}
-.intro{line-height:2;color:#dce3ff;font-size:15px}
-.scene{height:260px;position:relative;margin:25px auto 10px}
-.island{
- position:absolute;bottom:25px;left:50%;transform:translateX(-50%);
- width:250px;height:75px;border-radius:50%;
- background:linear-gradient(#698bd5,#26376d 65%,#131c48);
- box-shadow:0 15px 30px #0008,0 0 35px #75aaff66
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle 2s infinite alternate;
 }
-.castle{
- position:absolute;bottom:85px;left:50%;transform:translateX(-50%);
- width:170px;height:120px;
- filter:drop-shadow(0 0 14px #ffb6d5)
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1.5); }
 }
-.tower{
- position:absolute;bottom:0;width:40px;
- background:linear-gradient(90deg,#66558e,#d6a3ca,#66558e);
- border:1px solid #ffe0ef
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: auto;
+  padding: 30px 18px 60px;
 }
-.tower:before{
- content:"";position:absolute;top:-25px;left:-6px;
- border-left:26px solid transparent;border-right:26px solid transparent;
- border-bottom:28px solid #ffb5d5
+
+.moon {
+  width: 95px;
+  height: 95px;
+  margin: 15px auto 25px;
+  border-radius: 50%;
+  background: #fff5c7;
+  box-shadow: 0 0 30px #fff3a8, 0 0 90px #9e9cff;
+  animation: float 4s ease-in-out infinite;
 }
-.a{height:65px;left:0}
-.b{height:100px;left:65px;width:42px}
-.c{height:70px;right:0}
-.window{
- position:absolute;bottom:18px;left:14px;width:9px;height:15px;
- border-radius:8px;background:#ffe9a2;box-shadow:0 0 12px #ffe9a2
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-13px); }
 }
-.b .window{height:22px;bottom:30px;left:16px}
-.cloud{
- position:absolute;font-size:24px;
- animation:float 4s ease-in-out infinite
+
+h1 {
+  font-size: clamp(27px, 6vw, 43px);
+  text-shadow: 0 0 20px #c5aaff;
 }
-.c1{left:10%;top:45px}.c2{right:9%;top:100px;animation-delay:-2s}
-.c3{left:24%;top:130px;animation-delay:-1s}
-@keyframes float{50%{transform:translateY(-13px)}}
-.card{
- margin:18px 0;padding:22px 17px;border-radius:22px;
- background:#ffffff0d;border:1px solid #b9c7ff40;
- box-shadow:0 10px 35px #0003
+
+.subtitle {
+  color: #d8d4ff;
+  line-height: 2;
 }
-h2{font-size:20px;color:#ffd5ed}
-p{line-height:2}
-.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-button{
- padding:14px 8px;border:1px solid #ffffff40;border-radius:15px;
- background:linear-gradient(135deg,#7652a6,#394f9b);
- color:white;font:inherit;cursor:pointer
+
+.castle {
+  font-size: clamp(75px, 20vw, 125px);
+  margin: 15px 0;
+  filter: drop-shadow(0 0 22px #9e8aff);
+  animation: float 5s ease-in-out infinite;
 }
-button:active{transform:scale(.97)}
-button span{display:block;font-size:25px;margin-bottom:6px}
-#message{
- display:none;margin-top:18px;padding:17px;border-radius:15px;
- background:#ff8bc91a;border:1px solid #ff8bc966;line-height:2;
- animation:appear .4s
+
+.island {
+  margin: 0 auto 25px;
+  padding: 18px;
+  max-width: 480px;
+  border-radius: 50% 50% 25% 25%;
+  background: linear-gradient(180deg, #443c83, #17183f);
+  box-shadow: 0 15px 50px #a28aff55;
 }
-@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
-.heart{
- position:fixed;bottom:10px;pointer-events:none;
- animation:rise 2.5s forwards;z-index:5
+
+.panel {
+  margin: 22px 0;
+  padding: 22px 16px;
+  border: 1px solid #a9a0ff66;
+  border-radius: 22px;
+  background: #ffffff0c;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 30px #6c55ff18;
 }
-@keyframes rise{to{transform:translateY(-85vh) rotate(25deg);opacity:0}}
-footer{font-size:12px;color:#b9c5ed;padding:22px}
+
+button {
+  width: 100%;
+  max-width: 340px;
+  display: block;
+  margin: 12px auto;
+  padding: 15px;
+  border: 1px solid #ffffff44;
+  border-radius: 16px;
+  background: linear-gradient(100deg, #6653c8, #a35bd1);
+  color: white;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+button:hover {
+  box-shadow: 0 0 22px #b8a3ff77;
+}
+
+.message {
+  display: none;
+  margin: 18px auto 0;
+  max-width: 480px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #ffffff12;
+  line-height: 2.2;
+  border: 1px solid #c2b4ff66;
+  animation: appear .5s ease;
+}
+
+.message.show {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+  position: fixed;
+  bottom: -40px;
+  z-index: 5;
+  pointer-events: none;
+  animation: rise 4s linear forwards;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+footer {
+  margin-top: 35px;
+  color: #c8c4ef;
+  font-size: 13px;
+}
 </style>
 </head>
 
 <body>
 <div id="stars"></div>
-<div class="moon"></div>
 
 <main>
- <div style="color:#c5d1ff;font-size:13px">
-  ✦ یک گوشهٔ کوچک از خیال ✦
- </div>
+  <div class="moon"></div>
 
- <h1>دنیای جادویی ضیا 🌙</h1>
+  <h1>به دنیای جادویی ضیا خوش آمدی ✨</h1>
 
- <div class="intro">
-  به دنیای کوچولوی ما خوش اومدی ✨<br>
-  اینجا ستاره‌ها برای تو روشن می‌شن.
- </div>
-
- <section class="scene">
-  <div class="cloud c1">✨</div>
-  <div class="cloud c2">🏮</div>
-  <div class="cloud c3">💫</div>
-
-  <div class="castle">
-   <div class="tower a"><i class="window"></i></div>
-   <div class="tower b"><i class="window"></i></div>
-   <div class="tower c"><i class="window"></i></div>
-  </div>
-
-  <div class="island"></div>
- </section>
-
- <section class="card">
-  <h2>💜 برای تو ساخته شده</h2>
-  <p>
-   این دنیا شاید کوچک باشه، اما یک سورپرایز قشنگ
-   توی دلش پنهان شده. هر دکمه رو لمس کن و کشفش کن.
+  <p class="subtitle">
+    جایی دور از شلوغی دنیا...<br>
+    جایی که هر ستاره یک داستان دارد. 🌠
   </p>
 
-  <div class="buttons">
-   <button onclick="letter()">
-    <span>💌</span>نامهٔ مخصوص تو
-   </button>
-
-   <button onclick="wish()">
-    <span>🌠</span>یک آرزو کن
-   </button>
-
-   <button onclick="secret()">
-    <span>🎁</span>سورپرایز مخفی
-   </button>
-
-   <button onclick="magic()">
-    <span>💖</span>روشن کردن جادو
-   </button>
+  <div class="island">
+    <div class="castle">🏰</div>
+    <p>قلعه‌ای میان ابرها</p>
+    <p>🌲 ✨ 🌲 ✨ 🌲</p>
   </div>
 
-  <div id="message" aria-live="polite"></div>
- </section>
+  <section class="panel">
+    <h2>🔮 دروازهٔ اسرار</h2>
+    <p class="subtitle">یکی از دروازه‌ها را انتخاب کن...</p>
 
- <footer>
-  با خیال ساخته شده، برای ساختن یک لبخند ♡<br>
-  دنیای جادویی ضیا ✨
- </footer>
+    <button onclick="openMessage('letter')">
+      💌 باز کردن نامهٔ مخفی
+    </button>
+
+    <div id="letter" class="message">
+      بعضی لحظه‌ها با چیزهای کوچک زیباتر می‌شوند؛
+      یک لبخند، یک خاطره و یک سورپرایز غیرمنتظره. 💜
+    </div>
+
+    <button onclick="makeHearts()">
+      💖 جادوی قلب‌ها
+    </button>
+
+    <button onclick="openMessage('wish')">
+      🌠 آرزوی ستاره‌ای
+    </button>
+
+    <div id="wish" class="message">
+      چشمانت را ببند و یک آرزو کن...<br>
+      شاید امشب آسمان جواب تو را بداند. ✨
+    </div>
+
+    <button onclick="finalMagic()">
+      🎆 سورپرایز نهایی
+    </button>
+
+    <div id="final" class="message">
+      ✨ در این دنیای بزرگ، هنوز جا برای شگفتی هست! ✨
+      <br>
+      این فقط شروع یک داستان جادویی است. 🌌
+    </div>
+  </section>
+
+  <footer>
+    ساخته‌شده با خیال و کمی جادو 💜<br>
+    دنیای ضیا ©
+  </footer>
 </main>
 
 <script>
-const sky=document.getElementById("stars");
+const stars = document.getElementById("stars");
 
-for(let i=0;i<100;i++){
- const s=document.createElement("i");
- s.className="star";
- s.style.left=Math.random()*100+"%";
- s.style.top=Math.random()*100+"%";
- const size=1+Math.random()*3;
- s.style.width=size+"px";
- s.style.height=size+"px";
- s.style.animationDelay=Math.random()*3+"s";
- sky.appendChild(s);
+for (let i = 0; i < 100; i++) {
+  const star = document.createElement("span");
+  star.className = "star";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.animationDelay = Math.random() * 3 + "s";
+  star.style.animationDuration = (1 + Math.random() * 3) + "s";
+  stars.appendChild(star);
 }
 
-function show(text){
- const box=document.getElementById("message");
- box.textContent=text;
- box.style.display="block";
- box.scrollIntoView({behavior:"smooth",block:"nearest"});
+function openMessage(id) {
+  document.getElementById(id).classList.toggle("show");
 }
 
-function letter(){
- show("یک نامه برای تو 💌 امیدوارم هر روزت پر از لحظه‌های قشنگ باشه. این صفحه رو با فکر ساختن یک لبخند طراحی کردم؛ چون گاهی یک کار کوچک می‌تونه خاطره‌ای بزرگ بسازه. ♡");
+function makeHearts() {
+  const emojis = ["💖", "💜", "💕", "💗", "✨"];
+
+  for (let i = 0; i < 35; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("span");
+      heart.className = "heart";
+      heart.textContent =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (18 + Math.random() * 24) + "px";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6500);
+    }, i * 70);
+  }
 }
 
-function wish(){
- show("چشم‌هات رو ببند و یک آرزوی قشنگ کن 🌠 شاید جادوی واقعی از همین امیدهای کوچیک شروع بشه.");
-}
-
-function secret(){
- show("🎁 سورپرایز مخفی: تو الان وارد دنیایی شدی که ضیا با خیال و سلیقهٔ خودش ساخته تا لحظه‌ای متفاوت برات بسازه. این فقط شروع ماجراست! ✨");
-}
-
-function magic(){
- for(let i=0;i<24;i++){
-  const h=document.createElement("div");
-  h.className="heart";
-  h.textContent=["💖","💕","✨","🌟"][Math.floor(Math.random()*4)];
-  h.style.left=Math.random()*95+"%";
-  h.style.fontSize=(18+Math.random()*20)+"px";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),2700);
- }
- show("جادو روشن شد! 💖 امیدوارم این لحظه لبخند به لبت بیاره.");
+function finalMagic() {
+  document.getElementById("final").classList.add("show");
+  makeHearts();
 }
 </script>
 </body>
