@@ -380,7 +380,28 @@ footer {
     قلمرو افسانه‌ای ضیا
   </footer>
 </main>
+// حرکت سه‌بعدی‌نمای جزیره با لمس گوشی
+const scene = document.querySelector(".scene");
 
+if (scene) {
+  scene.addEventListener("touchmove", function(event) {
+    const touch = event.touches[0];
+    const rect = scene.getBoundingClientRect();
+
+    const x = (touch.clientX - rect.left) / rect.width;
+    const y = (touch.clientY - rect.top) / rect.height;
+
+    const rotateY = (x - 0.5) * 18;
+    const rotateX = (0.5 - y) * 12;
+
+    scene.style.transform =
+      `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  }, { passive: true });
+
+  scene.addEventListener("touchend", function() {
+    scene.style.transform = "";
+  });
+}
 <script>
 const sky = document.getElementById("sky");
 
